@@ -13,7 +13,7 @@ endif
 wgtPkg: clean
 	cp -rf ../DNA_common .
 	zip -r $(PROJECT).wgt $(WRT_FILES)
-	
+
 config:
 	scp setup/weston.ini root@$(TIZEN_IP):/etc/xdg/weston/
 
@@ -31,6 +31,15 @@ stop:
 run: install
 	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && ./mm start"
 	#ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl | egrep -e 'DNA_MediaManager' | awk '{print $1}' | xargs --no-run-if-empty LD_LIBRARY_PATH=/opt/genivi/lib xwalk-launcher"
+
+run.feb1: install.feb1
+	ssh app@$(TIZEN_IP) "app_launcher -s JLRPOCX003.MediaManager -d"
+
+install.feb1: deploy
+ifndef OBS
+	-ssh app@$(TIZEN_IP) "pkgcmd -u -n JLRPOCX003.MediaManager -q"
+	ssh app@$(TIZEN_IP) "pkgcmd -i -t wgt -p /home/app/DNA_MediaManager.wgt -q"
+endif
 
 kill.xwalk:
 	ssh root@$(TIZEN_IP) "pkill xwalk"
