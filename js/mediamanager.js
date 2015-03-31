@@ -163,7 +163,7 @@ function listItems(itemSet){
         
 
 		t.content.querySelector(".artist-track-title").innerHTML = itemSet[item].DisplayName;
-		//t.content.querySelector(".content-listing").setAttribute("data-item_path",itemSet[item].Path);
+		t.content.querySelector(".content-listing").setAttribute("data-item_path",itemSet[item].Path);
 		
 		var clone = document.importNode(t.content,true);
 
@@ -180,10 +180,10 @@ function listItems(itemSet){
             }
             
             clone.querySelector(".content-listing").setAttribute("data-item_path",itemSet[item].Path);
-/*
+
             var artwork = getAlbumImage(itemSet[item].Artist);
             clone.querySelector(".content-listing img.albumArt").setAttribute("src",artwork);
-*/            
+            
             var nested = $("#libraryCloseSubPanelButton").data("nested");
             var root = $("#libraryCloseSubPanelButton").data("root");
             
@@ -353,8 +353,8 @@ function addElementToCarousel(itemData){
         clone.querySelector(".artist-name-carousel").setAttribute("data-artist_name",itemData.artist_name);
 
         $("#media-carousel-content").append(clone);
-        //var playlistLength = $("#media-carousel-content li").length;
-        //$("#media-carousel-content").css("width",playlistLength*200);
+        var playlistLength = $("#media-carousel-content li").length;
+        $("#media-carousel-content").css("width",playlistLength*200);
         coverScroll.refresh();
 }
 
