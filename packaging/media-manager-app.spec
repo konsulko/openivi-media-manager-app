@@ -23,8 +23,7 @@ A proof of concept pure html5 UI for Media Manager.
 make wgtPkg
 
 %install
-rm -rf %{buildroot}
-%make_install
+make install_obs "OBS=1" DESTDIR="%{?buildroot}"
 
 %post
 if [ -f /opt/usr/apps/.preinstallWidgets/preinstallDone ]; then
