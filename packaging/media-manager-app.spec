@@ -6,6 +6,7 @@ Group:      Applications/Multimedia
 License:    Apache-2.0
 URL:        http://www.tizen.org2
 Source0:    %{name}-%{version}.tar.bz2
+BuildArch:  noarch
 BuildRequires:  common-apps
 BuildRequires:  zip
 Requires:   pkgmgr
@@ -36,4 +37,6 @@ su app -c "pkgcmd -u -n JLRPOCX003 -q"
 %files
 %defattr(-,root,root,-)
 /opt/usr/apps/.preinstallWidgets/JLRPOCX003.MediaManager.wgt
+%dir /home/app/.cache/media-manager-artwork/
+/home/app/.cache/media-manager-artwork/simpleserver.py
 

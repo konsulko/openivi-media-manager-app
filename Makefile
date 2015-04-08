@@ -71,8 +71,11 @@ all:
 	@echo "Nothing to build"
 
 install_obs:
-	mkdir -p ${DESTDIR}/opt/usr/apps/.preinstallWidgets
-	cp -r JLRPOCX003.MediaManager.wgt ${DESTDIR}/opt/usr/apps/.preinstallWidgets/
+	mkdir -p $(DESTDIR)/home/app/.cache/media-manager-artwork
+	cp media-manager-artwork/simpleserver.py $(DESTDIR)/home/app/.cache/media-manager-artwork/ 
+	chmod +x $(DESTDIR)/home/app/.cache/media-manager-artwork/simpleserver.py
+	mkdir -p $(DESTDIR)/opt/usr/apps/.preinstallWidgets
+	cp -r JLRPOCX003.MediaManager.wgt $(DESTDIR)/opt/usr/apps/.preinstallWidgets/
 
 common: /opt/usr/apps/common-apps
 	cp -r /opt/usr/apps/common-apps DNA_common
