@@ -1,8 +1,8 @@
-#mediamanager-app #app {
+/*#mediamanager-app #app {
     overflow: hidden;
     position: relative;
     flex-direction: column;
-}
+}*/
 
 
 .library-btn span {
@@ -137,7 +137,7 @@ ul.no-bullets { list-style-type: none }
 .text-to-uppercase { text-transform: uppercase; }
 
 /* ANIMATION CLASS FOR LIBRARY */
-.hideMe{display:none;}
+/*.hideMe{display:none;}
 .toShow{display:block;}
 .animated { 
     -webkit-animation-duration: 1s; 
@@ -157,12 +157,18 @@ ul.no-bullets { list-style-type: none }
         opacity: 1; 
         -webkit-transform: translateX(-1080px); 
     } 
-} 
+} */
 
 /* ANIMATION CLASS FOR LIBRARY */
 .hideMe { display: none; }
-.toShow { display: block; }
-.animated { -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; -webkit-animation-timing-function: ease-in-out; animation-timing-function: ease-in-out; }
+.toShow { display: flex; }
+.animated { -webkit-animation-duration: 1s; 
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    -webkit-animation-timing-function: ease-in-out; 
+    animation-timing-function: ease-in-out; 
+}
  @-webkit-keyframes fadeInRight {  0% {
  opacity: 0;
  -webkit-transform: translateX(0px);
@@ -176,30 +182,38 @@ ul.no-bullets { list-style-type: none }
 
 
 /* LIBRARY */
-.musicContentListedItems{padding:0 10px;list-style-type:none;}
-
+ul.musicContentListedItems{
+    margin:0; 
+    list-style-type:none;
+    padding-left: 0;
+    padding-right: 40px;
+}
 
 /* changes to images */
 .listingImageSize{width:5%; margin:0 6px;}
+
+/*not sure if this style is being used*/
 li.musicLibraryContentList {padding:20px 0 37px 0px;border-bottom: 1px rgba(83, 181, 206, 1.0) solid;}
 .push-10right{margin-right:10px;}
-.library { position: absolute; left: 1080px; top: 0; width: 1080px; min-height: 1920px; z-index: 100; -webkit-transition: 1s;}
-
-
+/*.library { position: absolute; left: 1080px; top: 0; width: 1080px; min-height: 1920px; z-index: 100; -webkit-transition: 1s;}
+*/
 /* repositioned with current css to get border as css instead of multiple graphics */
-.libraryLeftPanel { position: absolute; top: 173px; left: -24px; width: 100px; min-height: 1920px; height: 100%; border-right: 1px rgba(83, 181, 206, 1.0) solid; background-repeat: no-repeat; background-position: left top; }
-
+/*.libraryLeftPanel { position: absolute; top: 173px; left: -24px; width: 100px; min-height: 1920px; height: 100%; border-right: 1px rgba(83, 181, 206, 1.0) solid; background-repeat: no-repeat; background-position: left top; }
+*/
 /* new as well */
 .content-listing img {position:relative;top:8px;}
-li.content-listing {border-bottom:1px rgba(83, 181, 206, 1.0) solid;height:68px;padding-top:20px;}
+li.content-listing {
+    height: 85px;
+    padding-top: 10px;
+}
 li.content-listing.no-images img.add-to-playlist-btn, li.content-listing.no-images img.play-now-btn {display:none;}
 .add-to-playlist-btn{margin-right:20px;}
-.artist-track-title {display:inline;font-size:large;margin-left:12px;}
+.artist-track-title {display:inline;}
 .track-time-total{margin: 0 20px;}
 .album-and-track-totals{float:right;}
 
-.libraryLeftControl { margin-top: 164px; width: 100px; cursor: pointer; }
-.gridIcon { width: 100px; height: 110px; background-repeat: no-repeat; background-position: left top; }
+/*.libraryLeftControl { margin-top: 164px; width: 100px; cursor: pointer; }
+*/.gridIcon { width: 100px; height: 110px; background-repeat: no-repeat; background-position: left top; }
 .listIcon { width: 100px; height: 110px; background-repeat: no-repeat; background-position: left top; }
 
 /* Using the IXONOS 'active' icon for the background icon whether touched or not */
@@ -214,9 +228,9 @@ img.replace-add-btn {width:5%;background:url(../images/replace_add_button.gif) n
 
 .libraryTopPanel { margin: 0; padding: 0; margin-left: 50px; height: 110px; background-repeat: no-repeat; background-position: left top; z-index: 1; overflow: hidden; }
 .libraryTopSubPanel {margin-top:-22px;border-top:rgba(83, 181, 206, 1.0) solid;}
-.libraryTopPanel .libraryTopPanelTitle { position: absolute; left: 57px; top: 19px; font-size: 0; }
-.closeLibraryButton { position: absolute; top: 25px; right: 25px; background-repeat: no-repeat; background-position: left top; width: 42px; height: 42px; z-index: 1; }
-.closeLibraryButton:active { position: absolute; top: 16px; }
+/*.libraryTopPanel .libraryTopPanelTitle { position: absolute; left: 57px; top: 19px; font-size: 0; }
+*//*.closeLibraryButton { position: absolute; top: 25px; right: 25px; background-repeat: no-repeat; background-position: left top; width: 42px; height: 42px; z-index: 1; }
+*//*.closeLibraryButton:active { position: absolute; top: 16px; }*/
 .libraryTabs { position: absolute; left: 40px; font-size: 0; overflow:hidden; white-space: nowrap; width: 550px; height: 100%; bottom: -10px; padding-bottom: 10px; }
 .tabsWrapper { position: absolute; font-size: 0; /*overflow: auto;*/ height: 100%; }
 .libraryTab { float: left; padding-top: 33px; padding-left: 15px; padding-right: 15px; height: 77px; max-width: 220px; overflow: hidden; white-space: nowrap; cursor: pointer; background-repeat: repeat-x; background-position: center top; text-transform: uppercase; }
@@ -242,15 +256,15 @@ img.replace-add-btn {width:5%;background:url(../images/replace_add_button.gif) n
 /* let li content bottom border fill ul parent by taking out margin-right:50px*/
 .libraryContent { margin-left: 90px; overflow-x: hidden; overflow-y: auto;/*-webkit-overflow-scrolling: touch;*/ }
 
-#listingWrapper{ height:1000px; overflow-y: hidden}
+#listingWrapper{ height:1200px; overflow-y: hidden}
 
 
 .boxIconText { position: relative; height: 25px; }
 .boxIconRectangle { display: inline-block; vertical-align: middle; width: 55px; height: 15px; }
 .boxIconCaption { margin-left: 3px; display: inline-block; vertical-align: middle; }
 .boxIconRectangleSmall { width: 30px; height: 10px; display: inline-block; vertical-align: middle; }
-.boxIconCaptionSmall { margin-left: 3px; display: inline-block; vertical-align: middle; }
-.incomingCallHide { display: none; }
+/*.boxIconCaptionSmall { margin-left: 3px; display: inline-block; vertical-align: middle; }
+*/.incomingCallHide { display: none; }
 
 /* JUST FOR DEV. THESE ARE THE COMMON.CSS STYLES */
 /* FONT SIZE */
@@ -345,7 +359,7 @@ img.replace-add-btn {width:5%;background:url(../images/replace_add_button.gif) n
 .callingTrue { margin-top: 279px; background-color: rgb(255, 3, 3); background-color: rgba(255, 3, 3, 0.8); }
 .callingFalse { margin-top: 117px; background-color: rgb(138, 255, 0); background-color: rgba(138, 255, 0, 0.54); }
 *:focus{outline:none;}
-.searchBoxContainer{margin:20px 0 20px 28px;overflow:auto;width:100%}
+.searchBoxContainer{margin:20px;overflow:auto;}
 .searchingBox { width: 360px; height: 40px; border: 1px rgba(83, 181, 206, 1.0) solid; color: white; background-color: transparent; margin-right: 20px; padding-left:10px;}
 
 #geniviBottomPanel {width:1080px;height:210px;position:relative;background: url('../images/mm-bottom-panel-bg.png') no-repeat 0 bottom;}
@@ -365,7 +379,7 @@ width:270px;
     background: url(../images/set-media-time-btn.png) no-repeat center center;
     padding: 0 15px;
  }
-.closeLibraryButton {
+/*.closeLibraryButton {
 	position: absolute;
 	top: 16px;
 	right: 25px;
@@ -373,10 +387,10 @@ width:270px;
 	width: 42px;
 	height: 42px;
 	z-index: 1;
-}
+}*/
 .libraryBackButton {
     background-repeat: no-repeat;
-    position: absolute;
+    /*position: absolute;*/
     margin-left: 20px;    
 }
 .addedNote {position: relative;left: -18px;top:28px;}
@@ -503,3 +517,10 @@ width:270px;
     padding-left: 6px;
 }
 
+.align-vertical {
+    align-items: center;
+}
+.text-input {
+    background-color: rgba(0, 0, 0, 1);
+    border: 1px solid rgba(178, 240, 255, .5);
+}
