@@ -15,7 +15,7 @@
  * limitations under the License.
  *
 -->
-<html id="mediamanager-app">
+<html id="media-manager-app">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>MultiMedia Manager</title>
@@ -139,15 +139,35 @@
 
 <body>
  <div id="base">
-    <div id="topBar"></div>
-    <div id="app">
-      <div id="clockElement"></div>
-      <div id="media-manager-wrapper">
-	<div class="libraryButton flag library-flag">
+	<div id="topBar"></div>
+	 <div id="app">
+	  <div id="clockElement"></div>
+	   <div id="media-manager-wrapper" class="flex-parent flex-column">
+
+<div class="content flex-parent flex-val-5 flex-column">
+	<div id="" class="flex-parent">
+		<div class="label-lead-line orange-viv-bg"></div>
+		<p class="label orange-viv flex-parent flex-item">
+			<small><strong>media manager</strong></small>
+		</p>
+	</div>
+</div>
+
+<!-- 	<div class="libraryButton flag library-flag">
       <div id="" class="fa fa-music library-btn orange-viv">
 		  <span>LIBRARY</span>
-       </div>
+      </div>
+	</div> -->
+  <div id="" class="flex-parent flex-row-reverse">
+		<div class="libraryButton flex-parent"> 	
+			<p id="library-button" class="hex-arrow label center black">
+			<!-- <div class="fa fa-music library-btn orange-viv"></div> -->
+				<small><strong>library</strong></small>
+				<span class="menu-icon"></span>
+			</p>
+		</div>	
 	</div>
+
 	<div id="scroll-container" class="media-carousel-container">
 		<ul id="media-carousel-content" class="no-bullets media-carousel-items">
 			<li class="carousel-item-container carousel-image-reflect" data-album-art="">
@@ -174,6 +194,7 @@
 		
 		</ul>
 	</div>
+
 	<!-- main element playing -->
 	<div id="infoPanelWrapper" class="textPanel">
 		<template id="media_playing_item_template"></template>
@@ -213,6 +234,7 @@
 			<div id="repeatButton" class="audio-crtl-button btn-repeat"><span></span></div>
 		</div>
 	</div>
+
 	<div id="musicLibrary" class="library pageBgColorNormalTransparent hideMe">
 		<div class="libraryLeftPanel">
 			<div class="libraryLeftControl">
@@ -224,17 +246,35 @@
 				<p class="boxIconCaptionSmall blue-lt"><strong>MULTIMEDIA LIBRARY: LOCAL</strong></p>
 			</div>
 		</div>
-		<div class="libraryTabClear"></div>
-		<div id="libraryTopSubPanel" class="libraryTopSubPanel bgColorDark" style="display: block; ">
-			<div id="closeLibrary" class="closeLibraryButton" ></div>
-			<div id="libraryCloseSubPanelButton" class="small white closeLibrarySubPanelButton"><strong>Back</strong></div>
-			<div id="subPanelArea" class="subPanelArea">
+		<!-- <div class="libraryTabClear"></div> -->
+		<div id="libraryTopSubPanel" class="flex-parent">
+			<!-- <div id="closeLibrary" class="closeLibraryButton"></div> -->
+			<div id="libraryCloseSubPanelButton" class="libraryBackButton">	<div class="settings-back-arrow"></div>
+			</div>			
+
+<!-- 			<div id="subPanelArea" class="subPanelArea">
 				<div id="libraryTopSubPanelTitle">
 					<div class="boxIconRectangleSmall bgColorTheme"></div>
 					<div class="boxIconCaptionSmall blue-lt"><strong>Local</strong></div>
 				</div>
 				<p id="libraryTopSubPanelSubtitle" class="white ellipsis-one-line"><strong>Music</strong></p>
+			</div> -->
+			<div id="library-right-panel-top" class="flex-parent">
+
+				<div id="subPanelArea" class="flex-item content">
+					<div id="libraryTopSubPanelTitle" class="flex-parent">
+						<div class="label-lead-line orange-viv-bg"></div>
+						<p class="label orange-viv flex-parent flex-item">
+							<small><strong>local</strong></small>
+						</p>
+					</div>
+					<h3 id="libraryTopSubPanelSubtitle">Music</h3>
+				</div>
+
+				<div id="closeLibrary" class="closeLibraryButton"></div>
+				<!-- <p class="closeLibraryButton"></p> -->
 			</div>
+
 		</div>
 		<div id="libraryContent" class="libraryContent musicLibraryContentGrid" style="max-height: 1170px; ">
 			<div class="searchBoxContainer">
@@ -252,6 +292,7 @@
 			</div>
 		</div>
 	</div>
+
 		<!-- TEMPLATES BELOW -->
 		<template id="carousel-items-template">
 			<li class="carousel-item-container carousel-image-reflect" data-album-art="">
@@ -268,7 +309,7 @@
 			<h3 class="white song-name-position ellipsis-one-line" data-song-title=""><strong></strong></h3>
 		</template>
 		<template id="song-progress-bar"> </template>
-		<Template id="mediaContentItemTemplate">
+		<template id="mediaContentItemTemplate">
 			<div class="musicElement boxShadow4 borderColorTheme"> <img src="" data-album-thumbnail-pic="" alt="" />
 				<p class="album-title-text white ellipsis-one-line text-to-uppercase" data-artist-name=""><strong></strong></p>
 				<div class="artist-title-text blue-viv ellipsis-one-line text-to-uppercase" data-album-title=""><strong><small></small></strong></div>
@@ -284,9 +325,15 @@
 			<li> <img src="" class="carousel-image-reflect" alt=""> <span class="song-title-carousel ellipsis-one-line" data-song-title=""></span> <span class="artist-name-carousel ellipsis-one-line" data-artist-name=""></span> </li>
 		</template>
 		<!-- MM HTML TO ADD STOPS HERE --> 
-    </div>
-  </div>
-      <div id="bottomBar"></div>
+
+    </div><!-- media-manager-wrapper
+ -->
+  </div><!-- app -->
+
+ <div id="bottomBar"></div>
+
+ </div><!-- base -->
+      
 
 </body>
 </html>

@@ -1,3 +1,9 @@
+#mediamanager-app #app {
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+}
+
 
 .library-btn span {
 	padding-left:1.2rem;
@@ -218,13 +224,13 @@ img.replace-add-btn {width:5%;background:url(../images/replace_add_button.gif) n
 .libraryTabClear { display: inline-block; height: 110px; width: 130px; background-repeat: repeat-x; background-position: center top; position: absolute; top: 0; left: 640px; }
 .libraryTabInlineClear { display: inline-block; height: 110px; max-width: 630px; background-repeat: repeat-x; background-position: center top; }
 .libraryTopSubPanel { margin-top: -20px; left: 76px; padding-top: 20px; height: 60px; width: 645px; margin-bottom: 20px; z-index: 0; text-transform: uppercase; border-left: 1px rgba(83, 181, 206, 1.0) solid }
-.closeLibrarySubPanelButton { height: 43px; background-repeat: no-repeat; background-position: left top; text-align: right; padding: 0 15px 0 35px; line-height: 43px !important; display: block; margin-left: 20px; /*vertical-align: top;*/ cursor: pointer; text-transform: uppercase; position: absolute; top: 20px; }
 
 /*added css border*/
 .libraryTopSubPanel { margin-top: -20px; left: 76px; padding-top: 20px; height: 60px; width: 645px; margin-bottom: 20px; z-index: 0; text-transform: uppercase;border-left: 1px rgba(83, 181, 206, 1.0) solid }
 
-
-.closeLibrarySubPanelButton { height: 43px; background-repeat: no-repeat; background-position: left top; text-align: right; padding: 0 15px 0 35px; line-height: 43px !important; display: block; margin-left: 20px; /*vertical-align: top;*/ cursor: pointer; text-transform: uppercase; position: absolute;top:20px;}
+.closeLibrarySubPanelButton { height: 43px; background-repeat: no-repeat; background-position: left top; text-align: right; padding: 0 15px 0 35px; 
+    line-height: 43px !important; display: block; margin-left: 20px; /*vertical-align: top;*/ cursor: pointer; text-transform: uppercase; 
+    position: absolute; top: 20px; }
 
 /* background image needs to come out of common usr/css/blue/images/library */
 .closeLibrarySubPanelButton {background:url(../images/bt_back_blue.png) no-repeat 0 0;}
@@ -368,4 +374,132 @@ width:270px;
 	height: 42px;
 	z-index: 1;
 }
+.libraryBackButton {
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-left: 20px;    
+}
 .addedNote {position: relative;left: -18px;top:28px;}
+
+/* Hex Arrow */
+
+.hex-arrow {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    background-image: url(../images/blue_lt_flag.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.menu-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-image: url(../images/menu_icon_black.png);
+    background-size: 18px;
+}
+
+#media-manager-app #app {
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.label,
+.content h3 {
+    margin: 0; 
+}
+
+.label-lead-line {
+    width: 20%;
+    margin: 6px 10px 6px 0;
+}
+
+#nav-data-top .content {
+    height: 200px;
+}
+
+/* Library */
+
+#places-library.expanded {
+    left: 0;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+#nav-map {
+    position: relative;
+}
+
+.flex-val-2 {
+    flex: 2;
+}
+
+.flex-val-3 {
+    flex: 3;
+}
+
+.flex-val-5 {
+    flex: 5;
+}
+
+.placesLibraryContentList .placesElement {
+    padding: 10px 0 10px 0;
+    height: 70px;
+    box-shadow: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    line-height: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.placesLibraryContentList .placesBox {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 20px;
+    background-color: transparent !important;
+}
+
+#turn-arrow {
+    width: 100%;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#navigation-panel {
+    flex: 9;
+}
+
+#indicators {
+    margin-right: 20px;
+}
+
+#nav-directions p,
+#destination-item p {
+    margin: 0;
+}
+
+#nav-data-top .content {
+    height: 200px;
+}
+
+#nav-data-bottom {
+    height: 180px;
+}
+
+#distance-to > small {
+    font-size: .8em;
+    color: rgba(196, 196, 196, 0.8);
+    padding-left: 6px;
+}
+
