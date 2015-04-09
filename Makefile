@@ -1,4 +1,4 @@
-PROJECT = MediaManager
+PROJECT = JLRPOCX003.MediaManager
 INSTALL_FILES = media-manager-artwork images js icon.png index.html
 WRT_FILES = DNA_common css media-manager-artwork images icon.png index.html setup config.xml js manifest.json
 VERSION := 1.0.0
@@ -10,9 +10,10 @@ ifndef TIZEN_IP
 TIZEN_IP=TizenVTC
 endif
 
-wgtPkg: clean
-	cp -rf ../common-app ./DNA_common
-	rm -Rf DNA_common/.git
+dev: clean dev-common
+	zip -r $(PROJECT).wgt $(WRT_FILES)
+
+wgtPkg: common
 	zip -r $(PROJECT).wgt $(WRT_FILES)
 
 config:
@@ -29,6 +30,12 @@ scan:
 stop:
 	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && ./mm stop"
 
+kill.xwalk:
+	ssh root@$(TIZEN_IP) "pkill xwalk"
+
+kill.feb1:
+	ssh app@$(TIZEN_IP) "pkgcmd -k JLRPOCX001.HomeScreen"
+
 run: install
 	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && ./mm start"
 	#ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl | egrep -e 'DNA_MediaManager' | awk '{print $1}' | xargs --no-run-if-empty LD_LIBRARY_PATH=/opt/genivi/lib xwalk-launcher"
@@ -43,12 +50,6 @@ ifndef OBS
 	ssh app@$(TIZEN_IP) "pkgcmd -i -t wgt -p /home/app/MediaManager.wgt -q"
 endif
 
-kill.xwalk:
-	ssh root@$(TIZEN_IP) "pkill xwalk"
-
-kill.feb1:
-	ssh app@$(TIZEN_IP) "pkgcmd -k JLRPOCX001.HomeScreen"
-
 install: deploy
 ifndef OBS
 	scp mm app@$(TIZEN_IP):
@@ -61,13 +62,34 @@ endif
 
 $(PROJECT).wgt : wgt
 
-deploy: wgtPkg
+deploy: dev
 ifndef OBS
 	scp $(PROJECT).wgt app@$(TIZEN_IP):/home/app
 endif
 
 all:
 	@echo "Nothing to build"
+
+install_obs:
+	mkdir -p $(DESTDIR)/home/app/.cache/media-manager-artwork
+	cp media-manager-artwork/simpleserver.py $(DESTDIR)/home/app/.cache/media-manager-artwork/ 
+	chmod +x $(DESTDIR)/home/app/.cache/media-manager-artwork/simpleserver.py
+	mkdir -p $(DESTDIR)/opt/usr/apps/.preinstallWidgets
+	cp -r JLRPOCX003.MediaManager.wgt $(DESTDIR)/opt/usr/apps/.preinstallWidgets/
+
+common: /opt/usr/apps/common-apps
+	cp -r /opt/usr/apps/common-apps DNA_common
+
+/opt/usr/apps/common-apps:
+	@echo "Please install Common Assets"
+	exit 1
+
+dev-common: ../common-app
+	cp -rf ../common-app ./DNA_common
+	rm -rf DNA_common/.git
+
+../common-app:
+	git clone git@github.com:PDXostc/common-app.git ../common-app
 
 clean:
 	-rm $(PROJECT).wgt
