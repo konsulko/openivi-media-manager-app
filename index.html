@@ -51,7 +51,7 @@
 				var path = JSON.parse(libClose.data("root"));
             	generateRootListing({"Path":path[0]});
 
-			    $(".searchingBox").val("");
+			    $("#searchingBox").val("");
 			});
 
 			$('#libraryCloseSubPanelButton').click(function(){
@@ -119,13 +119,13 @@
 
 			$("#searchButton").click(function(ev){ 
 				console.log("Search event fired");
-				var searchVal = $(".searchingBox").val();
+				var searchVal = $("#searchingBox").val();
 				console.log(searchVal);
 				searchAndDisplay(searchVal);
 			});
 
-			$(".searchingBox").focus(function(ev){
-				$(".searchingBox").val("");
+			$("#searchingBox").focus(function(ev){
+				$("#searchingBox").val("");
 			});
 
 			coverScroll = new IScroll(document.getElementById("scroll-container"),{scrollX:true});
@@ -235,32 +235,15 @@
 		</div>
 	</div>
 
-	<div id="musicLibrary" class="library pageBgColorNormalTransparent hideMe">
+	<!-- <div id="musicLibrary" class="library pageBgColorNormalTransparent hideMe"> -->
+	<div id="musicLibrary" class="library overlay-bg hideMe">
 		<div class="libraryLeftPanel">
 			<div class="libraryLeftControl">
 				<div id="search" class="searchIcon"></div>
 			</div>
 		</div>
-		<div id="libraryTopPanel" class="libraryTopPanel">
-			<div class="libraryTopPanelTitle">
-				<p class="boxIconCaptionSmall blue-lt"><strong>MULTIMEDIA LIBRARY: LOCAL</strong></p>
-			</div>
-		</div>
-		<!-- <div class="libraryTabClear"></div> -->
-		<div id="libraryTopSubPanel" class="flex-parent">
-			<!-- <div id="closeLibrary" class="closeLibraryButton"></div> -->
-			<div id="libraryCloseSubPanelButton" class="libraryBackButton">	<div class="settings-back-arrow"></div>
-			</div>			
-
-<!-- 			<div id="subPanelArea" class="subPanelArea">
-				<div id="libraryTopSubPanelTitle">
-					<div class="boxIconRectangleSmall bgColorTheme"></div>
-					<div class="boxIconCaptionSmall blue-lt"><strong>Local</strong></div>
-				</div>
-				<p id="libraryTopSubPanelSubtitle" class="white ellipsis-one-line"><strong>Music</strong></p>
-			</div> -->
-			<div id="library-right-panel-top" class="flex-parent">
-
+		<div id="libraryRightPanel" class="flex-parent flex-column flex-item">
+			<div id="libraryTopPanel" class="libraryTopPanel flex-parent space-between">
 				<div id="subPanelArea" class="flex-item content">
 					<div id="libraryTopSubPanelTitle" class="flex-parent">
 						<div class="label-lead-line orange-viv-bg"></div>
@@ -270,25 +253,51 @@
 					</div>
 					<h3 id="libraryTopSubPanelSubtitle">Music</h3>
 				</div>
-
-				<div id="closeLibrary" class="closeLibraryButton"></div>
-				<!-- <p class="closeLibraryButton"></p> -->
+				<p id="closeLibrary" class="closeLibraryButton"></p>
 			</div>
 
-		</div>
-		<div id="libraryContent" class="libraryContent musicLibraryContentGrid" style="max-height: 1170px; ">
-			<div class="searchBoxContainer">
-				<input type="text" class="searchingBox fl-left inputs" value="search string">
-				<div id="searchButton" class="fakeButton fl-left">SEARCH</div>
+			<div id="library-right-panel-top" class="flex-parent">
+				<div id="libraryCloseSubPanelButton" class="libraryBackButton">	<div class="settings-back-arrow"></div>
+				</div>
+	<!-- 			<div id="subPanelArea" class="subPanelArea">
+					<div id="libraryTopSubPanelTitle">
+						<div class="boxIconRectangleSmall bgColorTheme"></div>
+						<div class="boxIconCaptionSmall blue-lt"><strong>Local</strong></div>
+					</div>
+					<p id="libraryTopSubPanelSubtitle" class="white ellipsis-one-line"><strong>Music</strong></p>
+				</div> -->
+				<div id="libraryTopSubPanel" class="flex-parent align-vertical">
+						<div class="">
+							<p class="boxIconCaptionSmall blue-lt"><strong>MULTIMEDIA LIBRARY: LOCAL</strong></p>
+						</div>
+				</div>
 			</div>
-			<div id="listingWrapper">
-				<ul class="musicContentListedItems">
-					<!--		<template id="media-content-list"></template>-->
-					<li class="content-listing"> <img src="images/replace-current-queue-btn.png" alt="" data-replace-current-btn=""> <img src="images/album-art-test.jpg" alt="" class="listingImageSize albumArt">
-						<p class="artist-track-title" data-artist-track-title=""></p>
-						<div class="album-and-track-totals"><span class="number-of-albums" data-album-number-total=""></span><span class="track-time-total" data-track-time-total=""></span> <img src="images/add-to-current-queue-btn.png" alt="" data-add-to-current-btn=""> </div>
-					</li>
-				</ul>
+
+			<div id="libraryContent" class="libraryContent musicLibraryContentGrid flex-item">
+				<div class="searchBoxContainer">
+					<!-- <input type="text" class="searchingBox fl-left inputs" value="search string">
+					<div id="searchButton" class="fakeButton fl-left">SEARCH</div> -->
+					<div class="input-group">
+					  <input id="searchingBox" class="text-input input-white" type="text" placeholder="album, title, or artist">
+			    	<input id="searchButton" value="Search" type="button" class="button-infill button-blue">
+			    </div>
+				</div>
+
+				<div id="listingWrapper">
+					<ul class="musicContentListedItems flex-item">
+						<!--		<template id="media-content-list"></template>-->
+						<li class="content-listing"> 
+							<img src="images/replace-current-queue-btn.png" alt="" data-replace-current-btn=""> 
+							<img src="images/album-art-test.jpg" alt="" class="listingImageSize albumArt">
+							<p class="artist-track-title ellipsis-one-line" data-artist-track-title=""></p>
+							<div class="album-and-track-totals">
+								<span class="number-of-albums" data-album-number-total=""></span>
+								<span class="track-time-total" data-track-time-total=""></span> 
+								<img src="images/add-to-current-queue-btn.png" alt="" data-add-to-current-btn=""> 
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -316,9 +325,16 @@
 			</div>
 		</template>
 		<template id="media-content-list">
-			<li class="content-listing"> <img class="play-now-btn" src="images/replace-current-queue-btn.png" alt="" data-replace-current-btn=""> <img src="images/album-art-test.jpg" alt="" class="listingImageSize albumArt">
-				<p class="artist-track-title" data-artist-track-title=""></p>
-				<div class="album-and-track-totals"><span class="number-of-albums" data-album-number-total=""></span><span class="track-time-total" data-track-time-total=""></span> <span class="addedNote hideMe">Added</span> <img class="add-to-playlist-btn" src="images/add-to-current-queue-btn.png" alt="" data-add-to-current-btn=""> </div>
+			<li class="content-listing"> 
+				<img class="play-now-btn" src="images/replace-current-queue-btn.png" alt="" data-replace-current-btn=""> 
+				<img src="images/album-art-test.jpg" alt="" class="listingImageSize albumArt">
+				<p class="artist-track-title ellipsis-one-line" data-artist-track-title=""></p>
+				<div class="album-and-track-totals">
+					<span class="number-of-albums" data-album-number-total=""></span>
+					<span class="track-time-total" data-track-time-total=""></span> 
+					<span class="addedNote hideMe">Added</span> 
+					<img class="add-to-playlist-btn" src="images/add-to-current-queue-btn.png" alt="" data-add-to-current-btn=""> 
+				</div>
 			</li>
 		</template>
 		<template id="carousel-listed-items">
