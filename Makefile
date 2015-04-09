@@ -47,7 +47,7 @@ run.feb1: install.feb1
 install.feb1: deploy
 ifndef OBS
 	-ssh app@$(TIZEN_IP) "pkgcmd -u -n JLRPOCX003.MediaManager -q"
-	ssh app@$(TIZEN_IP) "pkgcmd -i -t wgt -p /home/app/MediaManager.wgt -q"
+	ssh app@$(TIZEN_IP) "pkgcmd -i -t wgt -p /home/app/JLRPOCX003.MediaManager.wgt -q"
 endif
 
 install: deploy
