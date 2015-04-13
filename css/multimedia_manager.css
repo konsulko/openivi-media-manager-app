@@ -524,3 +524,8 @@ width:270px;
     background-color: rgba(0, 0, 0, 1);
     border: 1px solid rgba(178, 240, 255, .5);
 }
+
+#bottomBarLogoImg {
+  content:url('/images/genivi_white_sm.png');
+  width: auto;
+}
