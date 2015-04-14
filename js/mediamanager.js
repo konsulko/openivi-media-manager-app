@@ -396,19 +396,7 @@ function searchAndDisplay(searchTerm){
         }
         c--;
     }
-
-
-  /*  
-    var i = set.length+1;
-    while(i >= 0){
-
-        i--;
-    }
-
-    var cat = searchCategories.indexOf(searchCategories);
     
-    searchString = "";
-    */
     console.log(cat);
 
     switch(cat){
