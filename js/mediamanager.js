@@ -111,7 +111,7 @@ function generateRootListing(path){
 function getRootItems(pathObj){
     var rootPromise = new $.Deferred();
 
-    Browser.listContainers(pathObj,0,100,["DisplayName","Path","Type","TypeEx"],
+    Browser.listContainers(pathObj,0,100,["DisplayName","Path","Type","TypeEx","AlbumArtURL"],
         function(obj,err){
             rootPromise.resolve(obj);
     });
@@ -181,7 +181,7 @@ function listItems(itemSet){
             
             clone.querySelector(".content-listing").setAttribute("data-item_path",itemSet[item].Path);
 
-            var artwork = getAlbumImage(itemSet[item].Artist);
+            var artwork = getAlbumImage(itemSet[item].AlbumArtURL);
             clone.querySelector(".content-listing img.albumArt").setAttribute("src",artwork);
             
             var nested = $("#libraryCloseSubPanelButton").data("nested");
@@ -191,7 +191,7 @@ function listItems(itemSet){
             if(root == nested){
                 clone.querySelector(".content-listing img.albumArt").style.visibility = "hidden";
             }else{
-                var artwork = getAlbumImage(itemSet[item].Artist);
+                var artwork = getAlbumImage(itemSet[item].AlbumArtURL);
                 clone.querySelector(".content-listing img.albumArt").setAttribute("src",artwork);                
             }
             
@@ -471,7 +471,7 @@ function displayChildren(tapEvent){
 
 function getChildren(path){
 
-	Browser.listContainers({"Path":path},0,1000,['DisplayName','Type','Path','AlbumArtURL','TypeEx'],function(obj,err){
+	Browser.listChildren({"Path":path},0,1000,['DisplayName','Type','Path','AlbumArtURL','TypeEx'],function(obj,err){ 
 		if(obj.length > 0){
             var nestedPath = pushPath(path); //pushes path to items
 			listItems(obj);
