@@ -178,10 +178,10 @@
 	<div id="infoPanelWrapper" class="textPanel">
 		<template id="media_playing_item_template"></template>
 		<img id="thumbnail" class="currentlyPlayingPreviewClass albumThumbnail carouselImage boxShadow2" data-album-thumbnail-pic="" src="media-manager-artwork/album-art-test.jpg" alt="">
-		<div id="timeBar" class="timeBarClass" data-timebar="">
-			<h3 id="songIndex" class="white hidden" data-track-number-of-track=""><strong>Track Number</strong></h3>
-			<h6 id="songTime" class="rightText blue-viv hidden" data-song-time=""><strong>Song Time</strong></h6>
-		</div>
+<!-- 		<div id="timeBar" class="timeBarClass" data-timebar="">
+			<h3 id="songIndex" class="white" data-track-number-of-track=""><strong>Track Number</strong></h3>
+			<h6 id="songTime" class="rightText blue-viv" data-song-time=""><strong>Song Time</strong></h6>
+		</div> -->
 		<div id="infoPanel" class="infoPanelClass">
 			<div class="nowPlaying">
 				<div class="boxIconRectangle bgColorTheme"></div>
@@ -197,8 +197,12 @@
 		<div id="current-song-title" class="fontSizeXXLarge fontColorNormal fontWeightBold songNameTextPosition three-lines-ellipsis current-song-title-pad" data-song-title=""></div>		
 	</div>
 	<div class="playback-console-container">
-		<div id="songProgress" class="progressBar borderColorTheme" data-progress-bar="">
-			<div id="songSeek" class="progressPot bgColorTheme boxShadow3" data-song-seek="" style="width: 18.705035971223023%;"> <a>
+		<div id="timeBar" class="timeBarClass" data-timebar="">
+			<h3 id="songIndex" class="white hidden" data-track-number-of-track=""><strong>Track Number</strong></h3>
+			<h6 id="songTime" class="rightText blue-viv" data-song-time=""><strong>Song Time</strong></h6>
+		</div>
+		<div id="songProgress" class="progressBar" data-progress-bar="">
+			<div id="songSeek" class="progressPot bgColorTheme boxShadow3" data-song-seek="" style=""> <a>
 				<div></div>
 				</a> </div>
 		</div>
