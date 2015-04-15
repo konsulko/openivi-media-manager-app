@@ -82,15 +82,39 @@ background-size: cover; }
 .flag { float:right;color: #fff; font-size: 18px; font-weight: bold; letter-spacing: 1px; }
 .library-flag { top: 230px; right: 1px; }
 .button-flag { background-color: #0e3e5f; position: relative; width: 140px; height: 45px; }
+
 /* Media Carousel*/
 .caroufredsel_wrapper { display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto; width: 1080px; height: 0px; margin: 0px; overflow: hidden; cursor: move; }
 .carousellist { text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 383px; margin: 0px; width: 1080px; height: 0px; }
-#media-carousel-content { display:inline-block; margin: 0 0 0 50px; }
-.media-carousel-container { margin: 100px 0 58px 26px; position:relative; background: none; overflow: hidden; border-bottom: #3399FF 1px solid; }
-.media-carousel-container img { width: 26rem;}
-.media-carousel-container li {/* width: 180px; margin: 0 10px;*/ text-align: center; display:inline-block;}
+#media-carousel-content { 
+    display: flex; 
+    margin: 0 0 0 50px; 
+}
+.media-carousel-container { 
+    margin: 100px 0 58px 26px; 
+    position:relative; 
+    background: none; 
+    overflow: hidden; 
+    border-bottom: #53b5ce 1px solid; 
+    height: 500px; 
+}
+.media-carousel-container img { 
+    /*width: 26rem;*/
+    width: 300px;
+}
+.media-carousel-container li {
+    /* width: 180px; */
+    margin: 0 10px;
+    text-align: center; 
+    /*display:inline-block;*/
+}
 
-.carousel-item-container { height: 240px; /* width: 240px; */ position: relative; }
+.carousel-item-container { 
+    height: 240px; 
+    /* width: 240px; */ 
+    position: relative; 
+}
+
 .song-title-carousel { font-size: 30px; position: relative; top: -65px; }
 .artist-name-carousel { font-size: 18px; position: relative; top: -65px; }
 .album-carousel-description { width:260px;margin:0 auto;}
@@ -431,8 +455,9 @@ width:270px;
 }
 
 .label-lead-line {
-    width: 20%;
-    margin: 6px 10px 6px 0;
+    width: 175px;
+    margin: 7px 10px 6px 0;
+    height: 20px;
 }
 
 #nav-data-top .content {
@@ -459,6 +484,9 @@ width:270px;
 
 .flex-val-3 {
     flex: 3;
+}
+.flex-val-4 {
+    flex: 4;
 }
 
 .flex-val-5 {
@@ -523,4 +551,17 @@ width:270px;
 .text-input {
     background-color: rgba(0, 0, 0, 1);
     border: 1px solid rgba(178, 240, 255, .5);
+}
+
+#bottomBarLogoImg {
+  content:url('/images/genivi_white_sm.png');
+  width: 106px;
+}
+
+#clockElement {
+    height: 100px;
+}
+
+.margin-left {
+    margin-left: 20px;
 }

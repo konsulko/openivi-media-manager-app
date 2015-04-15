@@ -24,11 +24,11 @@
 <script type="text/javascript" src="./DNA_common/components/jQuery/jquery-1.8.2.js"></script>
 <script type="text/javascript" src="./DNA_common/js/init.js"></script>
 <script type="text/javascript" src="js/iscroll.js"></script>
-	<link rel="stylesheet" href="./DNA_common/css/style.css"/>
-	        <link rel="stylesheet" href="./css/font-awesome.css">
-<link href="css/multimedia_manager.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./DNA_common/css/style.css"/>
+<link rel="stylesheet" href="./css/font-awesome.css">
 <link href="common/components/dateTIme/dateTime.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/mediamanager.js"></script>
+<link rel="stylesheet" href="css/multimedia_manager.css" type="text/css">
 <script>
 	var coverScroll = {};
 	var libraryScroll = {};
@@ -142,56 +142,34 @@
 	<div id="topBar"></div>
 	 <div id="app">
 	  <div id="clockElement"></div>
-	   <div id="media-manager-wrapper" class="flex-parent flex-column">
+	   <div id="media-manager-wrapper" class="flex-parent flex-val-4 space-between flex-column">
 
-<div class="content flex-parent flex-val-5 flex-column">
-	<div id="" class="flex-parent">
-		<div class="label-lead-line orange-viv-bg"></div>
-		<p class="label orange-viv flex-parent flex-item">
-			<small><strong>media manager</strong></small>
-		</p>
-	</div>
-</div>
-
-<!-- 	<div class="libraryButton flag library-flag">
-      <div id="" class="fa fa-music library-btn orange-viv">
-		  <span>LIBRARY</span>
-      </div>
-	</div> -->
-  <div id="" class="flex-parent flex-row-reverse">
-		<div class="libraryButton flex-parent"> 	
-			<p id="library-button" class="hex-arrow label center black">
-			<!-- <div class="fa fa-music library-btn orange-viv"></div> -->
-				<small><strong>library</strong></small>
-				<span class="menu-icon"></span>
+	<div id="" class="flex-parent space-between">
+		<div class="flex-parent margin-left">
+			<div class="label-lead-line orange-viv-bg"></div>
+			<p class="label orange-viv flex-parent flex-item">
+				<small><strong>media manager</strong></small>
 			</p>
-		</div>	
+		</div>
+	  <div id="" class="flex-parent">
+			<div class="libraryButton flex-parent"> 	
+				<p id="library-button" class="hex-arrow label center black">
+				<!-- <div class="fa fa-music library-btn orange-viv"></div> -->
+					<small><strong>library</strong></small>
+					<span class="menu-icon"></span>
+				</p>
+			</div>	
+		</div>
 	</div>
 
 	<div id="scroll-container" class="media-carousel-container">
 		<ul id="media-carousel-content" class="no-bullets media-carousel-items">
-			<li class="carousel-item-container carousel-image-reflect" data-album-art="">
-				<img alt="" src="media-manager-artwork/album-art-test.jpg">
+<!-- 			<li class="carousel-item-container carousel-image-reflect">
 				<div class="album-carousel-description">
-					<div class="song-title-carousel ellipsis-one-line" data-song-title="">Sample Song Title</div>
-					<div class="artist-name-carousel ellipsis-two-line" data-artist-name="">Artist Name</div>
+					<div class="song-title-carousel ellipsis-one-line">Sample Song Title</div>
+					<div class="artist-name-carousel ellipsis-two-line">Artist Name</div>
 				</div>
-			</li>
-						<li class="carousel-item-container carousel-image-reflect" data-album-art="">
-				<img alt="" src="media-manager-artwork/album-art-test.jpg">
-				<div class="album-carousel-description">
-					<div class="song-title-carousel ellipsis-one-line" data-song-title="">Sample Song Title</div>
-					<div class="artist-name-carousel ellipsis-two-line" data-artist-name="">Artist Name</div>
-				</div>
-			</li>
-						<li class="carousel-item-container carousel-image-reflect" data-album-art="">
-				<img alt="" src="media-manager-artwork/album-art-test.jpg">
-				<div class="album-carousel-description">
-					<div class="song-title-carousel ellipsis-one-line" data-song-title="">Sample Song Title</div>
-					<div class="artist-name-carousel ellipsis-two-line" data-artist-name="">Artist Name</div>
-				</div>
-			</li>
-		
+			</li>	 -->	
 		</ul>
 	</div>
 
@@ -217,7 +195,7 @@
 		<div id="current-album-title" class="fontSizeSmaller fontColorTheme fontWeightBold one-line-ellipsis" data-album-title=""></div>
 		<div id="current-song-title" class="fontSizeXXLarge fontColorNormal fontWeightBold songNameTextPosition three-lines-ellipsis current-song-title-pad" data-song-title=""></div>		
 	</div>
-	<div class="playback-console-container clear-me">
+	<div class="playback-console-container">
 		<div id="songProgress" class="progressBar borderColorTheme" data-progress-bar="">
 			<div id="songSeek" class="progressPot bgColorTheme boxShadow3" data-song-seek="" style="width: 18.705035971223023%;"> <a>
 				<div></div>
@@ -303,14 +281,14 @@
 	</div>
 
 		<!-- TEMPLATES BELOW -->
-		<template id="carousel-items-template">
+<!-- 		<template id="carousel-items-template">
 			<li class="carousel-item-container carousel-image-reflect" data-album-art="">
 				<div class="album-carousel-description">
 					<div class="song-title-carousel ellipsis-one-line" data-song-title=""></div>
 					<div class="artist-name-carousel ellipsis-two-line" data-artist-name=""></div>
 				</div>
 			</li>
-		</template>
+		</template> -->
 		<template id="media_playing_item_template"></template>
 		<template id="trackPlayingInformation">
 			<div class="white text-large artistNameTextMargin ellipsis-one-line" data-artist-name=""><strong></strong></div>
@@ -338,7 +316,11 @@
 			</li>
 		</template>
 		<template id="carousel-listed-items">
-			<li> <img src="" class="carousel-image-reflect" alt=""> <span class="song-title-carousel ellipsis-one-line" data-song-title=""></span> <span class="artist-name-carousel ellipsis-one-line" data-artist-name=""></span> </li>
+			<li class="carousel-item-container"> 
+				<img src="" class="carousel-image-reflect" alt=""> 
+				<span class="song-title-carousel ellipsis-one-line"></span>
+				<span class="artist-name-carousel ellipsis-one-line"></span> 
+			</li>
 		</template>
 		<!-- MM HTML TO ADD STOPS HERE --> 
 
