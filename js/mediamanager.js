@@ -325,8 +325,7 @@ function generatePlaylistElementsPromise(input_data){
 //Returns a local webserver 
 function getAlbumImage(filepath){
     if(filepath != undefined && filepath != "undefined"){
-        var fragment = filepath.substring(filepath.lastIndexOf("/"),filepath.length);
-        return "http://127.0.0.1:8000"+fragment;    
+        return filepath;
     }else{
         return "images/cover_album.png";
     }
