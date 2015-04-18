@@ -471,7 +471,7 @@ function displayChildren(tapEvent){
 
 function getChildren(path){
 
-	Browser.listChildren({"Path":path},0,1000,['DisplayName','Type','Path','AlbumArtURL','TypeEx'],function(obj,err){ 
+	Browser.listContainers({"Path":path},0,1000,['DisplayName','Type','Path','AlbumArtURL','TypeEx'],function(obj,err){ 
 		if(obj.length > 0){
             var nestedPath = pushPath(path); //pushes path to items
 			listItems(obj);
