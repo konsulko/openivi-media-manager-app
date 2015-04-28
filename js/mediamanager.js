@@ -851,3 +851,112 @@ function closeLibraryWindow() {
         var rootVal = $("#libraryCloseSubPanelButton").data("root");
         $("#libraryCloseSubPanelButton").data("nested",rootVal);
 }
+
+var coverScroll = {};
+var libraryScroll = {};
+hold ;
+
+$(document).ready(function(){
+
+    setTimeout(function(){
+
+         mminit();
+
+        //temporary
+        clearTimeout(volumeTimer);
+
+        $('.libraryButton').click(function(){
+            $('#musicLibrary').addClass('toShow').addClass('fadeInRight').addClass('animated');
+            
+            var libClose = $("#libraryCloseSubPanelButton");
+            libClose.data("nested",libClose.data("root"));
+
+            var path = JSON.parse(libClose.data("root"));
+            generateRootListing({"Path":path[0]});
+
+            $("#searchingBox").val("");
+        });
+
+        $('#libraryCloseSubPanelButton').click(function(){
+            goToPreviousList();
+        });
+
+        $("#closeLibrary").click(function(){
+            closeLibraryWindow();
+        });
+
+        $("#playButton").click(function(ev){
+            playPause();
+        });
+
+        $("#fastFowardButton").on("touchstart",function(ev){
+            console.log("New touchstart! ff");
+            lastStamp = Date.now();
+            $("#fastFowardButton").addClass("btn-fforward-on");
+            hold = setInterval(function(){
+                fastSeek(1);
+            },500);
+        });
+
+        $("#fastRewindButton").on("touchstart",function(ev){
+            console.log("New touchstart! fr");
+            lastStamp = Date.now();
+            $("#fastRewindButton").addClass("btn-frewind-on");
+            hold = setInterval(function(){
+                fastSeek(-1);
+            },500);
+        });
+
+        $("#fastFowardButton, #fastRewindButton").on("touchend",function(ev){
+            console.log("New touchend!");
+            $("#fastFowardButton,#fastRewindButton").removeClass("btn-fforward-on btn-frewind-on");
+            clearInterval(hold);
+        });
+
+
+        $("#set-media-time-slider").on("touchstart",function(ev){
+            setPlaybackPosition(ev.originalEvent.touches[0].pageX - 40)
+        });
+
+        $("#nextButton").on("touchstart",function(ev){
+            $("#nextButton").addClass("btn-next-on");
+        }).on("touchend",function(ev){
+            $("#nextButton").removeClass("btn-next-on");
+            next();
+        })
+
+        $("#prevButton").on("touchstart",function(ev){
+            $("#prevButton").addClass("btn-previous-on");
+            
+        }).on("touchend",function(ev){
+            $("#prevButton").removeClass("btn-previous-on");
+            previous();
+        });
+
+        $("#repeatButton").on("touchend",function(ev){
+            var repeatState = $(this).data("repeat_next_state");
+            Player.setRepeated(repeatState,function(r,e){});
+        });
+
+        $("#shuffleButton").on("touchend",function(ev){
+            newState = ($("#shuffleButton").hasClass("btn-shuffle-on"))? false : true;
+            Player.setShuffled(newState,function(r,err){console.log("setting shuffle to "+newState)});
+        });
+
+        $("#searchButton").click(function(ev){ 
+            console.log("Search event fired");
+            var searchVal = $("#searchingBox").val();
+            console.log(searchVal);
+            searchAndDisplay(searchVal);
+        });
+/*
+        $("#searchingBox").focus(function(ev){
+            $("#searchingBox").val("");
+        });
+*/
+        coverScroll = new IScroll(document.getElementById("scroll-container"),{scrollX:true});
+        libraryScroll = new IScroll(document.getElementById("listingWrapper"),{"tap":true});
+    },500);
+    
+});
+

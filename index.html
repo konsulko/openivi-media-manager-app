@@ -18,19 +18,23 @@
 <html id="media-manager-app">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
 <title>MultiMedia Manager</title>
 <meta name="viewport" content="width=1080, height=1920, user-scalable=no" />
-<!-- <link rel="import" href="templates.html" id="templates"> -->
+
+<!--  jquery and plugins  -->
 <script type="text/javascript" src="./DNA_common/components/jQuery/jquery-1.8.2.js"></script>
 <script type="text/javascript" src="./DNA_common/js/init.js"></script>
 <script type="text/javascript" src="js/iscroll.js"></script>
+<link href="./DNA_common/components/dateTime/css/dateTime.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/mediamanager.js"></script>
+
 <link rel="stylesheet" href="./DNA_common/css/style.css"/>
 <link rel="stylesheet" href="./css/font-awesome.css">
-<link href="common/components/dateTIme/dateTime.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/mediamanager.js"></script>
 <link rel="stylesheet" href="css/multimedia_manager.css" type="text/css">
+
 <script>
-	var coverScroll = {};
+/*	var coverScroll = {};
 	var libraryScroll = {};
 	hold ;
 
@@ -126,17 +130,17 @@
 				var searchVal = $("#searchingBox").val();
 				console.log(searchVal);
 				searchAndDisplay(searchVal);
-			});
+			});*/
 /*
 			$("#searchingBox").focus(function(ev){
 				$("#searchingBox").val("");
 			});
 */
-			coverScroll = new IScroll(document.getElementById("scroll-container"),{scrollX:true});
+/*			coverScroll = new IScroll(document.getElementById("scroll-container"),{scrollX:true});
 			libraryScroll = new IScroll(document.getElementById("listingWrapper"),{"tap":true});
 		},500);
 		
-	});
+	});*/
 
 </script>
 </head>
