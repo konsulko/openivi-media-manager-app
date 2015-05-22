@@ -12,7 +12,6 @@
     color:#fff;
 }
 
-.fontThemeColor {color:rgba(83, 181, 206 1.0);}
 .playerWrapper video { position: absolute; top: 230px; left: 55px; width: 610px; height: 300px; padding: 0; margin: 0; display: none; }
 .carouselWrapper { width: 1080px; height: 300px; position: absolute; top: 230px; left: -15px; padding: 0; margin: 0; display: block; border-bottom-style: solid; border-bottom-width: 1px; }
 .carouselList { margin: 0; padding: 0; list-style: none; display: block; }
@@ -158,29 +157,6 @@ ul.no-bullets { list-style-type: none }
 .text-to-uppercase { text-transform: uppercase; }
 
 /* ANIMATION CLASS FOR LIBRARY */
-/*.hideMe{display:none;}
-.toShow{display:block;}
-.animated { 
-    -webkit-animation-duration: 1s; 
-    animation-duration: 1s; 
-    -webkit-animation-fill-mode: both; 
-    animation-fill-mode: both; 
-    -webkit-animation-timing-function: ease-in-out; 
-    animation-timing-function: ease-in-out; 
-} 
-
-@-webkit-keyframes fadeInRight { 
-    0% { 
-        opacity: 0; 
-        -webkit-transform: translateX(0px); 
-    } 
-    100% { 
-        opacity: 1; 
-        -webkit-transform: translateX(-1080px); 
-    } 
-} */
-
-/* ANIMATION CLASS FOR LIBRARY */
 .hideMe { display: none; }
 .toShow { display: flex; }
 .animated { -webkit-animation-duration: 1s; 
@@ -216,12 +192,7 @@ ul.musicContentListedItems{
 /*not sure if this style is being used*/
 li.musicLibraryContentList {padding:20px 0 37px 0px;border-bottom: 1px rgba(83, 181, 206, 1.0) solid;}
 .push-10right{margin-right:10px;}
-/*.library { position: absolute; left: 1080px; top: 0; width: 1080px; min-height: 1920px; z-index: 100; -webkit-transition: 1s;}
-*/
-/* repositioned with current css to get border as css instead of multiple graphics */
-/*.libraryLeftPanel { position: absolute; top: 173px; left: -24px; width: 100px; min-height: 1920px; height: 100%; border-right: 1px rgba(83, 181, 206, 1.0) solid; background-repeat: no-repeat; background-position: left top; }
-*/
-/* new as well */
+
 .content-listing img {position:relative;top:8px;}
 li.content-listing {
     height: 85px;
@@ -287,58 +258,6 @@ img.replace-add-btn {width:5%;background:url(../images/replace_add_button.gif) n
 /*.boxIconCaptionSmall { margin-left: 3px; display: inline-block; vertical-align: middle; }
 */.incomingCallHide { display: none; }
 
-/* JUST FOR DEV. THESE ARE THE COMMON.CSS STYLES */
-/* FONT SIZE */
-.fontSizeXXSmall { font-size: 14px; line-height: 14px; }
-.fontSizeXSmall { font-size: 18px; line-height: 18px; }
-.fontSizeSmaller { font-size: 20px; line-height: 20px; }
-.fontSizeSmall { font-size: 24px; line-height: 24px; }
-.fontSizeMedium { font-size: 28px; line-height: 28px; }
-.fontSizeLarge { font-size: 30px; line-height: 30px; }
-.fontSizeLarger { font-size: 34px; line-height: 34px; }
-.fontSizeXLarge { font-size: 40px; line-height: 40px; }
-.fontSizeXXLarge { font-size: 48px; line-height: 50px; }
-.fontSizeXXXLarge { font-size: 62px; line-height: 62px; }
-.fontSizeXXXXLarge { font-size: 80px; line-height: 80px; }
-.fontWeightNormal { font-weight: normal; }
-.fontWeightBold { font-weight: bold; }
-.fontWeightBolder { font-weight: bolder; }
-.fontWeightLighter { font-weight: lighter; }
-/* FONT COLOR */
-.fontColorNormal { color: rgb(255, 255, 255); color: rgba(255, 255, 255, 1.0); /*#ffffff*/ }
-.fontColorTheme { color: rgb(178, 240, 255); color: rgba(83, 181, 206, 1.0); /*#3aaeff*/ }
-.fontColorLight { color: rgb(178, 240, 255); }
-.fontColorDark { color: rgb(83, 181, 206); }
-.fontColorSelected { color: rgb(0, 171, 255); color: rgba(0, 171, 255, 1.0); /*#00abff*/ }
-.fontColorDimmed { color: rgb(145, 149, 153); color: rgba(145, 149, 153, 1.0); /*#919599*/ }
-.fontColorDimmedLight { color: rgb(199, 199, 199); color: rgba(199, 199, 199, 1.0); /*#c7c7c7*/ }
-.fontColorLightRed { color: rgb(255, 3, 3); color: rgba(255, 3, 3, 0.8); }
-/* PAGE BACKGROUND COLOR */
-.pageBgColorNormal { background-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 1.0); }
-.pageBgColorNormalTransparent { background-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.8); }
-.pageBgColorTheme { background-color: rgb(83, 181, 206); background-color: rgba(83, 181, 206, 1.0); }
-.pageBgColorThemeTransparent { background-color: rgb(83, 181, 206); background-color: rgba(83, 181, 206, 0.8); }
-.pageBgColorLight { background-color: rgb(65, 183, 255); background-color: rgba(65, 183, 255, 1.0); }
-.pageBgColorLightTransparent { background-color: rgb(65, 183, 255); background-color: rgba(65, 183, 255, 0.8); }
-.pageBgColorDark { background-color: rgb(0, 128, 191); background-color: rgba(0, 128, 191, 1.0); }
-.pageBgColorDarkTransparent { background-color: rgb(0, 128, 191); background-color: rgba(0, 128, 191, 0.8); }
-.pageBgColorSelected { background-color: rgb(0, 171, 255); background-color: rgba(0, 171, 255, 1.0); }
-.pageBgColorSelectedTransparent { background-color: rgb(0, 171, 255); background-color: rgba(0, 171, 255, 0.8); }
-.pageBgColorDimmed { background-color: rgb(145, 149, 153); background-color: rgba(145, 149, 153, 1.0); }
-.pageBgColorDimmedTransparent { background-color: rgb(145, 149, 153); background-color: rgba(145, 149, 153, 0.8); }
-/* BACKGROUND COLOR */
-.bgColorNormal { background-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 1.0); }
-.bgColorNormalTransparent { background-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.5); }
-.bgColorTheme { background-color: rgb(83, 181, 206);}
-.bgColorThemeTransparent { background-color: rgb(83, 181, 206); background-color: rgba(83, 181, 206, 0.5); }
-.bgColorLight { background-color: rgb(65, 183, 255); background-color: rgba(65, 183, 255, 1.0); }
-.bgColorLightTransparent { background-color: rgb(65, 183, 255); background-color: rgba(65, 183, 255, 0.5); }
-.bgColorDark { background-color: rgb(6, 36, 55); background-color: rgba(6, 36, 55, 1.0); }
-.bgColorDarkTransparent { background-color: rgb(6, 36, 55); background-color: rgba(6, 36, 55, 0.5); }
-.bgColorSelected { background-color: rgb(0, 171, 255); background-color: rgba(0, 171, 255, 1.0); }
-.bgColorSelectedTransparent { background-color: rgb(0, 171, 255); background-color: rgba(0, 171, 255, 0.5); }
-.bgColorDimmed { background-color: rgb(145, 149, 153); background-color: rgba(145, 149, 153, 1.0); }
-.bgColorDimmedTransparent { background-color: rgb(145, 149, 153); background-color: rgba(145, 149, 153, 0.5); }
 /* BOX SHADOW */
 .boxShadow1 { box-shadow: 0 0 10px 2px rgba(18, 75, 115, 0.8); }
 .boxShadow1Active:active, .boxShadow1Active:focus { box-shadow: 0 0 10px 2px rgb(18, 75, 115); }
@@ -350,26 +269,6 @@ img.replace-add-btn {width:5%;background:url(../images/replace_add_button.gif) n
 .boxShadow4Active:active, .boxShadow4Active:focus { box-shadow: 0 0 70px 2px rgb(29, 162, 255); }
 .boxShadowInset { box-shadow: 0 0 2px 2px #1DA2FF inset; }
 .boxShadowInset:active, .boxShadowInset:hover { box-shadow: 0 0 2px 2px #124B73 inset; }
-/* BORDER COLOR */
-.borderColorNormal { border-color: rgb(0, 0, 0); border-color: rgba(0, 0, 0, 1.0); }
-.borderColorTheme { border-color: border-color: rgba(83, 181, 206, 0.5); }
-.borderColorLight { border-color: rgb(128, 203, 255); border-color: rgba(128, 203, 255, 1.0); }
-.borderColorDark { border-color: rgb(0, 89, 151); border-color: rgba(0, 89, 151, 1.0); }
-.borderColorSelected { border-color: rgb(29, 162, 255); border-color: rgba(29, 162, 255, 1.0); }
-.borderColorDimmed { border-color: rgb(199, 199, 199); border-color: rgba(199, 199, 199, 1.0); }
-/* TEXT BACKGROUND COLOR */
-.textBgColorNormal { background-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 1.0); }
-.textBgColorNormalTransparent { background-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.8); }
-.textBgColorTheme { background-color: rgb(29, 162, 255); background-color: rgba(29, 162, 255, 1.0); }
-.textBgColorThemeTransparent { background-color: rgb(29, 162, 255); background-color: rgba(29, 162, 255, 0.4); }
-.textBgColorLight { background-color: rgb(128, 203, 255); background-color: rgba(128, 203, 255, 1.0); }
-.textBgColorLightTransparent { background-color: rgb(128, 203, 255); background-color: rgba(128, 203, 255, 0.4); }
-.textBgColorDark { background-color: rgb(0, 89, 151); background-color: rgba(0, 89, 151, 1.0); }
-.textBgColorDarkTransparent { background-color: rgb(0, 89, 151); background-color: rgba(0, 89, 151, 0.4); }
-.textBgColorSelected { background-color: rgb(29, 162, 255); background-color: rgba(29, 162, 255, 1.0); }
-.textBgColorSelectedTransparent { background-color: rgb(29, 162, 255); background-color: rgba(29, 162, 255, 0.4); }
-.textBgColorDimmed { background-color: rgb(199, 199, 199); background-color: rgba(199, 199, 199, 1.0); }
-.textBgColorDimmedTransparent { background-color: rgb(199, 199, 199); background-color: rgba(199, 199, 199, 0.4); }
 /* OPACITY */
 .opacityFull { opacity: 1.0; }
 .opacityHeavy { opacity: 0.8; }
@@ -383,11 +282,6 @@ img.replace-add-btn {width:5%;background:url(../images/replace_add_button.gif) n
 .searchBoxContainer{margin:20px;overflow:auto;}
 .searchingBox { width: 360px; height: 40px; border: 1px rgba(83, 181, 206, 1.0) solid; color: white; background-color: transparent; margin-right: 20px; padding-left:10px;}
 
-#geniviBottomPanel {width:1080px;height:210px;position:relative;background: url('../images/mm-bottom-panel-bg.png') no-repeat 0 bottom;}
-.logoCenter {
-margin:0 auto;
-width:270px;
-}
 .fakeButton { height: 20px; width: 119px; background-color: #0e3e5f; text-align: center; padding-top: 25px; font-weight: bold; }
 /* #topBar{height:85px;width:1080px;background: url('../images/mm-top-header-bckgnd.png') no-repeat 0 0;}*/
 .header-title {opacity:.5;}
@@ -400,24 +294,16 @@ width:270px;
     background: url(../images/set-media-time-btn.png) no-repeat center center;
     padding: 0 15px;
  }
-/*.closeLibraryButton {
-    position: absolute;
-    top: 16px;
-    right: 25px;
-    background: url('../images/bt_close.png') no-repeat left top;
-    width: 42px;
-    height: 42px;
-    z-index: 1;
-}*/
+
 .libraryBackButton {
     background-repeat: no-repeat;
     /*position: absolute;*/
     margin-left: 20px;    
 }
+
 .addedNote {position: relative;left: -18px;top:28px;}
 
 /* Hex Arrow */
-
 .hex-arrow {
     width: 200px;
     height: 50px;
@@ -552,7 +438,6 @@ width:270px;
 
 #bbar-logo {
   background-image: url('/images/genivi_white_sm.png');
-  background-size: 106px;
 }
 
 #clockElement {
@@ -560,6 +445,6 @@ width:270px;
 }
 
 .margin-left {
-    margin-left: 20px;
+    margin-left: 45px;
 }
 
