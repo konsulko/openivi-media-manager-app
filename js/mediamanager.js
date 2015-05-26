@@ -536,9 +536,11 @@ function updatePlayButton(status){
     console.log("updating playbutton");
 
     if(status == "PAUSED"){
-        $("#playButton").removeClass("btn-play-pause-pause");
-    }else if(status == "PLAYING"){
-        $("#playButton").addClass("btn-play-pause-pause");
+        $("#playButton").removeClass("fa-play");
+        $("#playButton").addClass("fa-pause");
+    } else if(status == "PLAYING") {
+        $("#playButton").removeClass("fa-pause");
+        $("#playButton").addClass("fa-play");
     }
 
 /*
@@ -586,15 +588,15 @@ function updateRepeatButton(repeatState){
         case "REPEAT":
             // change to all tracks.
             $("#repeatButton span").html("All Tracks");
-            $("#repeatButton").addClass("btn-repeat-on");
+            $("#repeatButton").addClass("blue-viv");
         break;
         case "REPEAT_SINGLE":
             $("#repeatButton span").html("Current Track");
-            $("#repeatButton").addClass("btn-repeat-on");
+            $("#repeatButton").addClass("blue-viv");
         break;
         case "NO_REPEAT":
             $("#repeatButton span").html("OFF");
-            $("#repeatButton").removeClass("btn-repeat-on");
+            $("#repeatButton").removeClass("blue-viv");
         break;
     }
 }
@@ -602,9 +604,9 @@ function updateRepeatButton(repeatState){
 function updateShuffleButton(shuffleStatus){
 
     if(shuffleStatus == true){
-            $("#shuffleButton").addClass("btn-shuffle-on");
+            $("#shuffleButton").addClass("blue-viv");
     }else if(shuffleStatus == false){
-            $("#shuffleButton").removeClass("btn-shuffle-on");
+            $("#shuffleButton").removeClass("blue-viv");
     }
     //$("#shuffleButton").data("shuffle_state",shuffledStatus);
 
@@ -892,7 +894,7 @@ $(document).ready(function(){
         $("#fastFowardButton").on("touchstart",function(ev){
             console.log("New touchstart! ff");
             lastStamp = Date.now();
-            $("#fastFowardButton").addClass("btn-fforward-on");
+            $("#fastFowardButton").addClass("white");
             hold = setInterval(function(){
                 fastSeek(1);
             },500);
@@ -901,7 +903,7 @@ $(document).ready(function(){
         $("#fastRewindButton").on("touchstart",function(ev){
             console.log("New touchstart! fr");
             lastStamp = Date.now();
-            $("#fastRewindButton").addClass("btn-frewind-on");
+            $("#fastRewindButton").addClass("white");
             hold = setInterval(function(){
                 fastSeek(-1);
             },500);
@@ -909,7 +911,7 @@ $(document).ready(function(){
 
         $("#fastFowardButton, #fastRewindButton").on("touchend",function(ev){
             console.log("New touchend!");
-            $("#fastFowardButton,#fastRewindButton").removeClass("btn-fforward-on btn-frewind-on");
+            $("#fastFowardButton,#fastRewindButton").removeClass("white");
             clearInterval(hold);
         });
 
@@ -919,17 +921,17 @@ $(document).ready(function(){
         });
 
         $("#nextButton").on("touchstart",function(ev){
-            $("#nextButton").addClass("btn-next-on");
+            $("#nextButton").addClass("white");
         }).on("touchend",function(ev){
-            $("#nextButton").removeClass("btn-next-on");
+            $("#nextButton").removeClass("white");
             next();
         })
 
         $("#prevButton").on("touchstart",function(ev){
-            $("#prevButton").addClass("btn-previous-on");
+            $("#prevButton").addClass("white");
             
         }).on("touchend",function(ev){
-            $("#prevButton").removeClass("btn-previous-on");
+            $("#prevButton").removeClass("white");
             previous();
         });
 
@@ -939,7 +941,7 @@ $(document).ready(function(){
         });
 
         $("#shuffleButton").on("touchend",function(ev){
-            newState = ($("#shuffleButton").hasClass("btn-shuffle-on"))? false : true;
+            newState = ($("#shuffleButton").hasClass("blue-viv"))? false : true;
             Player.setShuffled(newState,function(r,err){console.log("setting shuffle to "+newState)});
         });
 
