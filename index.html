@@ -29,140 +29,141 @@
 		<script type="text/javascript" src="js/mediamanager.js"></script>
 
 		<link rel="stylesheet" href="./DNA_common/css/style.css"/>
-		<link rel="stylesheet" href="./css/font-awesome.css">
 		<link rel="stylesheet" href="css/multimedia_manager.css" type="text/css">
 	</head>
 
 	<body>
-	<div id="top-bar"></div>
-		<div id="center-panel">			
+		<div id="base">
+			<div id="top-bar"></div>
 			<div id="app">
 			  <div id="clockElement"></div>
-			  <div id="media-manager-wrapper" class="flex-parent flex-val-4 space-between flex-column">
-					<div id="" class="flex-parent space-between">
-						<div class="flex-parent margin-left">
-							<div class="label-lead-line orange-viv-bg"></div>
-							<p class="label orange-viv flex-parent flex-item">
-								<small><strong>media manager</strong></small>
-							</p>
-						</div>
-			  		<div id="" class="flex-parent">
-							<div class="libraryButton flex-parent"> 	
-								<p id="library-button" class="hex-arrow label center black">
-									<!-- <div class="fa fa-music library-btn orange-viv"></div> -->
-									<small><strong>library</strong></small>
-									<span class="menu-icon"></span>
+			   <div id="media-manager-wrapper" class="flex-parent flex-item-4 space-between flex-column">
+
+			<div id="" class="flex-parent space-between">
+				<div class="flex-parent margin-left">
+					<div class="label-lead-line orange-viv-bg"></div>
+					<p class="label orange-viv flex-parent flex-item">
+						<small><strong>media manager</strong></small>
+					</p>
+				</div>
+			  <div id="" class="flex-parent">
+					<div class="libraryButton flex-parent"> 	
+						<p id="library-button" class="hex-arrow label center black">
+						<!-- <div class="fa fa-music library-btn orange-viv"></div> -->
+							<small><strong>library</strong></small>
+							<span class="menu-icon"></span>
+						</p>
+					</div>	
+				</div>
+			</div>
+
+			<div id="scroll-container" class="media-carousel-container">
+				<ul id="media-carousel-content" class="no-bullets media-carousel-items">
+
+				</ul>
+			</div>
+
+			<!-- main element playing -->
+			<div id="infoPanelWrapper" class="textPanel">
+				<template id="media_playing_item_template"></template>
+				<img id="thumbnail" class="currentlyPlayingPreviewClass albumThumbnail carouselImage box-out-shadow box-out-blue" data-album-thumbnail-pic="" src="images/cover_album.png" alt="">
+				<div id="infoPanel" class="infoPanelClass">
+					<div class="nowPlaying">
+						<div class="boxIconRectangle"></div>
+						<!-- this creates the thick bar to left of "Now Playing" -->
+						<div class="boxIconCaption blue-lt"><strong>Now Playing</strong></div>
+					</div>
+					<div id="current-artist-name" class="white text-large artistNameTextMargin ellipsis-one-line" data-artist-name="">Artist</div>
+					<p id="current-album-title" class="blue-viv ellipsis-one-line" data-album-title="">Album Title</p>
+					<h4 id="current-song-title" class="white song-name-position ellipsis-three-line current-song-title-pad" data-song-title="">Song Title</h4>
+				</div>
+				<h5 id="current-artist-name" class="white artistNameTextMargin ellipsis-one-line" data-artist-name=""><strong></strong></h5>
+				<p id="current-album-title" class="small blue-viv ellipsis-one-line" data-album-title=""><strong></strong></p>
+				<h3 id="current-song-title" class="white songNameTextPosition ellipsis-three-line current-song-title-pad" data-song-title=""><strong></strong></h3>		
+			</div>
+			<div class="playback-console-container">
+				<div id="timeBar" class="timeBarClass" data-timebar="">
+					<h3 id="songIndex" class="white hidden" data-track-number-of-track=""><strong>Track Number</strong></h3>
+					<h6 id="songTime" class="rightText blue-viv" data-song-time=""><strong>Song Time</strong></h6>
+				</div>
+				<div id="songProgress" class="progressBar" data-progress-bar="">
+					<div id="set-media-time-slider" class="set-media-time-bar-holder" data-set-media-time-slider="">
+					<div id="songSeek" class="progressPot" data-song-seek="" style="">
+						<a>
+							<div>
+							</div>
+						</a> 
+					</div>
+					</div>
+					<div class="progressBar-border"></div>
+				</div>
+				<div id="controlButtons" class="audio-control-btns-wrapper">
+					<div id="prevButton" class="audio-crtl-button fa fa-fast-backward fa-2x"></div>
+					<div id="fastRewindButton" class="audio-crtl-button fa fa-backward fa-2x"></div>
+					<div id="playButton" class="audio-crtl-button fa fa-play fa-2x"></div>
+					<div id="fastFowardButton" class="audio-crtl-button fa fa-forward fa-2x"></div>
+					<div id="nextButton" class="audio-crtl-button fa fa-fast-forward fa-2x"></div>
+					<div id="shuffleButton" class="audio-crtl-button fa fa-random fa-2x"></div>
+					<div id="repeatButton" class="audio-crtl-button fa fa-repeat fa-2x"><span></span></div>
+				</div>
+			</div>
+
+			<div id="musicLibrary" class="library overlay-bg hideMe">
+				<div class="libraryLeftPanel">
+					<div class="libraryLeftControl">
+						<div id="search" class="fa fa-search fa-lg white"></div>
+					</div>
+				</div>
+				<div id="libraryRightPanel" class="flex-parent flex-column flex-item">
+					<div id="libraryTopPanel" class="libraryTopPanel flex-parent space-between">
+						<div id="subPanelArea" class="flex-item content">
+							<div id="libraryTopSubPanelTitle" class="flex-parent">
+								<div class="label-lead-line orange-viv-bg"></div>
+								<p class="label orange-viv flex-parent flex-item">
+									<small><strong>local</strong></small>
 								</p>
-							</div>	
-						</div>
-					</div>
-					<div id="scroll-container" class="media-carousel-container">
-						<ul id="media-carousel-content" class="no-bullets media-carousel-items">
-
-						</ul>
-					</div>
-
-					<!-- main element playing -->
-					<div id="infoPanelWrapper" class="textPanel">
-						<template id="media_playing_item_template"></template>
-						<img id="thumbnail" class="currentlyPlayingPreviewClass albumThumbnail carouselImage boxShadow2" data-album-thumbnail-pic="" src="media-manager-artwork/album-art-test.jpg" alt="">
-						<div id="infoPanel" class="infoPanelClass">
-							<div class="nowPlaying">
-								<div class="boxIconRectangle blue-viv-bg"></div>
-								<!-- this creates the thick bar to left of "Now Playing" -->
-								<div class="boxIconCaption blue-lt"><strong>Now Playing</strong></div>
 							</div>
-							<div id="current-artist-name" class="white text-large artistNameTextMargin ellipsis-one-line" data-artist-name=""><strong>Prince</strong></div>
-							<p id="current-album-title" class="blue-viv ellipsis-one-line" data-album-title=""><strong>Purple Rain</strong></p>
-							<h4 id="current-song-title" class="white song-name-position ellipsis-three-line current-song-title-pad" data-song-title=""><strong>When Doves Cry</strong></h4>
+							<h3 id="libraryTopSubPanelSubtitle">Music</h3>
 						</div>
-						<div id="current-artist-name" class="white text-large artistNameTextMargin ellipsis-one-line" data-artist-name=""><strong></strong></div>
-						<div id="current-album-title"><p class="small blue-viv ellipsis-one-line" data-album-title=""></p></div>
-						<div id="current-song-title"><h3 class="white songNameTextPosition ellipsis-three-line current-song-title-pad" data-song-title=""><strong></strong></h3></div>	
+						<p id="closeLibrary" class="closeLibraryButton"></p>
 					</div>
-					<div class="playback-console-container">
-						<div id="timeBar" class="timeBarClass" data-timebar="">
-							<h3 id="songIndex" class="white hidden" data-track-number-of-track=""><strong>Track Number</strong></h3>
-							<h6 id="songTime" class="rightText blue-viv" data-song-time=""><strong>Song Time</strong></h6>
+
+					<div id="library-right-panel-top" class="flex-parent">
+						<div id="libraryCloseSubPanelButton" class="libraryBackButton">	<div class="settings-back-arrow"></div>
 						</div>
-						<div id="songProgress" class="progressBar" data-progress-bar="">
-							<div id="set-media-time-slider" class="set-media-time-bar-holder" data-set-media-time-slider="">
-							<div id="songSeek" class="progressPot blue-viv-bg boxShadow3" data-song-seek="" style="">
-								<a>
-									<div>
+						<div id="libraryTopSubPanel" class="flex-parent flex-center">
+								<div class="">
+									<p class="boxIconCaptionSmall blue-lt"><strong>MULTIMEDIA LIBRARY: LOCAL</strong></p>
+								</div>
+						</div>
+					</div>
+
+					<div id="libraryContent" class="libraryContent musicLibraryContentGrid flex-item">
+						<div class="searchBoxContainer">
+							<div class="input-group">
+							  <input id="searchingBox" class="text-input input-white" type="text" placeholder="album, title, or artist">
+					    	<input id="searchButton" value="Search" type="button" class="button-infill button-blue">
+					    </div>
+						</div>
+
+						<div id="listingWrapper">
+							<ul class="musicContentListedItems flex-item">
+								<!--		<template id="media-content-list"></template>-->
+								<li class="content-listing"> 
+									<img src="images/replace-current-queue-btn.png" alt="" data-replace-current-btn=""> 
+									<img src="images/cover_album.png" alt="" class="listingImageSize albumArt">
+									<p class="artist-track-title ellipsis-one-line" data-artist-track-title=""></p>
+									<div class="album-and-track-totals">
+										<span class="number-of-albums" data-album-number-total=""></span>
+										<span class="track-time-total" data-track-time-total=""></span> 
+										<img src="images/add-to-current-queue-btn.png" alt="" data-add-to-current-btn=""> 
 									</div>
-								</a> 
-							</div>
-							</div>
-							<div class="progressBar-border"></div>
-						</div>
-						<div id="controlButtons" class="audio-control-btns-wrapper">
-							<div id="prevButton" class="audio-crtl-button btn-previous"></div>
-							<div id="fastRewindButton" class="audio-crtl-button btn-frewind"></div>
-							<div id="playButton" class="audio-crtl-button btn-play-pause"></div>
-							<div id="fastFowardButton" class="audio-crtl-button btn-fforward"></div>
-							<div id="nextButton" class="audio-crtl-button btn-next"></div>
-							<div id="shuffleButton" class="audio-crtl-button btn-shuffle"></div>
-							<div id="repeatButton" class="audio-crtl-button btn-repeat"><span></span></div>
+								</li>
+							</ul>
 						</div>
 					</div>
-
-					<div id="musicLibrary" class="library overlay-bg hideMe">
-						<div class="libraryLeftPanel">
-							<div class="libraryLeftControl">
-								<div id="search" class="searchIcon"></div>
-							</div>
-						</div>
-						<div id="libraryRightPanel" class="flex-parent flex-column flex-item">
-							<div id="libraryTopPanel" class="libraryTopPanel flex-parent space-between">
-								<div id="subPanelArea" class="flex-item content">
-									<div id="libraryTopSubPanelTitle" class="flex-parent">
-										<div class="label-lead-line orange-viv-bg"></div>
-										<p class="label orange-viv flex-parent flex-item">
-											<small><strong>local</strong></small>
-										</p>
-									</div>
-									<h3 id="libraryTopSubPanelSubtitle">Music</h3>
-								</div>
-								<p id="closeLibrary" class="closeLibraryButton"></p>
-							</div>
-
-							<div id="library-right-panel-top" class="flex-parent">
-								<div id="libraryCloseSubPanelButton" class="libraryBackButton">	<div class="settings-back-arrow"></div>
-								</div>
-								<div id="libraryTopSubPanel" class="flex-parent align-vertical">
-										<div class="">
-											<p class="boxIconCaptionSmall blue-lt"><strong>MULTIMEDIA LIBRARY: LOCAL</strong></p>
-										</div>
-								</div>
-							</div>
-
-							<div id="libraryContent" class="libraryContent musicLibraryContentGrid flex-item">
-								<div class="searchBoxContainer">
-									<div class="input-group">
-									  <input id="searchingBox" class="text-input input-white" type="text" placeholder="album, title, or artist">
-							    	<input id="searchButton" value="Search" type="button" class="button-infill button-blue">
-							    </div>
-								</div>
-
-								<div id="listingWrapper">
-									<ul class="musicContentListedItems flex-item">
-										<!--		<template id="media-content-list"></template>-->
-										<li class="content-listing"> 
-											<img src="images/replace-current-queue-btn.png" alt="" data-replace-current-btn=""> 
-											<img src="images/album-art-test.jpg" alt="" class="listingImageSize albumArt">
-											<p class="artist-track-title ellipsis-one-line" data-artist-track-title=""></p>
-											<div class="album-and-track-totals">
-												<span class="number-of-albums" data-album-number-total=""></span>
-												<span class="track-time-total" data-track-time-total=""></span> 
-												<img src="images/add-to-current-queue-btn.png" alt="" data-add-to-current-btn=""> 
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
+				</div>
+			</div>
 
 				<!-- TEMPLATES BELOW -->
 				<template id="media_playing_item_template"></template>
@@ -173,7 +174,7 @@
 				</template>
 				<template id="song-progress-bar"> </template>
 				<template id="mediaContentItemTemplate">
-					<div class="musicElement boxShadow4 blue-viv"> <img src="" data-album-thumbnail-pic="" alt="" />
+					<div class="musicElement blue-viv-bg"> <img src="" data-album-thumbnail-pic="" alt="" />
 						<p class="album-title-text white ellipsis-one-line text-to-uppercase" data-artist-name=""><strong></strong></p>
 						<div class="artist-title-text blue-viv ellipsis-one-line text-to-uppercase" data-album-title=""><strong><small></small></strong></div>
 					</div>
@@ -198,10 +199,11 @@
 						<span class="artist-name-carousel ellipsis-one-line"></span> 
 					</li>
 				</template>
-				<!-- MM HTML TO ADD STOPS HERE --> 
+
 		    </div><!-- media-manager-wrapper -->
-		  </div><!-- app -->			
-		</div><!-- center-panel -->  
-		<div id="bottom-bar"></div>
+		  </div><!-- app -->
+
+			<div id="bottom-bar"></div>
+		</div><!-- base -->  
 	</body>
 </html>
