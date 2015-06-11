@@ -92,6 +92,6 @@ dev-common: ../common-app
 	git clone git@github.com:PDXostc/common-app.git ../common-app
 
 clean:
-	-rm $(PROJECT).wgt
+	-rm -f $(PROJECT).wgt
 	-rm -rf DNA_common
 
