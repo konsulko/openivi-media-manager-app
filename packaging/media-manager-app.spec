@@ -29,14 +29,14 @@ rm -rf %{buildroot}
 make install_obs "OBS=1" DESTDIR="%{?buildroot}"
 
 %post
-su app -c "pkgcmd -i -t wgt -p /opt/usr/apps/.preinstallWidgets/JLRPOCX003.MediaManager.wgt -q"
+su app -c "pkgcmd -i -t wgt -p /opt/usr/apps/.preinstallWidgets/OPENIVI003.MediaManager.wgt -q"
 
 %postun
-su app -c "pkgcmd -u -n JLRPOCX003 -q"
+su app -c "pkgcmd -u -n OPENIVI003 -q"
 
 %files
 %defattr(-,root,root,-)
-/opt/usr/apps/.preinstallWidgets/JLRPOCX003.MediaManager.wgt
+/opt/usr/apps/.preinstallWidgets/OPENIVI003.MediaManager.wgt
 %dir /home/app/.cache/media-manager-artwork/
 /home/app/.cache/media-manager-artwork/simpleserver.py
 

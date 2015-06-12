@@ -1,4 +1,4 @@
-PROJECT = JLRPOCX003.MediaManager
+PROJECT = OPENIVI003.MediaManager
 INSTALL_FILES = media-manager-artwork images js icon.png index.html
 WRT_FILES = DNA_common css media-manager-artwork images icon.png index.html setup config.xml js manifest.json
 VERSION := 1.0.0
@@ -34,7 +34,7 @@ kill.xwalk:
 	ssh root@$(TIZEN_IP) "pkill xwalk"
 
 kill.feb1:
-	ssh app@$(TIZEN_IP) "pkgcmd -k JLRPOCX001.HomeScreen"
+	ssh app@$(TIZEN_IP) "pkgcmd -k OPENIVI001.HomeScreen"
 
 run: install
 	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && ./mm start"
@@ -42,12 +42,12 @@ run: install
 
 # Running MediaManager 
 run.feb1: install.feb1
-	ssh app@$(TIZEN_IP) "LD_LIBRARY=/opt/genivi/lib app_launcher -s JLRPOCX003.MediaManager -d"
+	ssh app@$(TIZEN_IP) "LD_LIBRARY=/opt/genivi/lib app_launcher -s OPENIVI003.MediaManager -d"
 
 install.feb1: deploy
 ifndef OBS
-	-ssh app@$(TIZEN_IP) "pkgcmd -u -n JLRPOCX003.MediaManager -q"
-	ssh app@$(TIZEN_IP) "pkgcmd -i -t wgt -p /home/app/JLRPOCX003.MediaManager.wgt -q"
+	-ssh app@$(TIZEN_IP) "pkgcmd -u -n OPENIVI003.MediaManager -q"
+	ssh app@$(TIZEN_IP) "pkgcmd -i -t wgt -p /home/app/OPENIVI003.MediaManager.wgt -q"
 endif
 
 install: deploy
@@ -56,7 +56,7 @@ ifndef OBS
 	scp -r media-manager-artwork app@$(TIZEN_IP):.cache/
 	#ssh root@$(TIZEN_IP) "rpm --force -ivh weekeyboard-0.0.2-0.i686.rpm"
 	ssh app@$(TIZEN_IP) "chmod +x mm"
-	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl | egrep -e 'JLRPOCX003.MediaManager' | awk '{print $1}' | xargs --no-run-if-empty xwalkctl -u"
+	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl | egrep -e 'OPENIVI003.MediaManager' | awk '{print $1}' | xargs --no-run-if-empty xwalkctl -u"
 	ssh app@$(TIZEN_IP) "export DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/5000/dbus/user_bus_socket' && xwalkctl -i /home/app/DNA_MediaManager.wgt"
 endif
 
@@ -75,21 +75,21 @@ install_obs:
 	cp media-manager-artwork/simpleserver.py $(DESTDIR)/home/app/.cache/media-manager-artwork/ 
 	chmod +x $(DESTDIR)/home/app/.cache/media-manager-artwork/simpleserver.py
 	mkdir -p $(DESTDIR)/opt/usr/apps/.preinstallWidgets
-	cp -r JLRPOCX003.MediaManager.wgt $(DESTDIR)/opt/usr/apps/.preinstallWidgets/
+	cp -r OPENIVI003.MediaManager.wgt $(DESTDIR)/opt/usr/apps/.preinstallWidgets/
 
-common: /opt/usr/apps/common-apps
-	cp -r /opt/usr/apps/common-apps DNA_common
+common: /opt/usr/apps/openivi-common-apps
+	cp -r /opt/usr/apps/openivi-common-apps DNA_common
 
-/opt/usr/apps/common-apps:
+/opt/usr/apps/openivi-common-apps:
 	@echo "Please install Common Assets"
 	exit 1
 
-dev-common: ../common-app
-	cp -rf ../common-app ./DNA_common
+dev-common: ../openivi-common-app
+	cp -rf ../openivi-common-app ./DNA_common
 	rm -rf DNA_common/.git
 
-../common-app:
-	git clone git@github.com:PDXostc/common-app.git ../common-app
+../openivi-common-app:
+	git clone git@github.com:konsulko/openivi-common-app.git ../openivi-common-app
 
 clean:
 	-rm -f $(PROJECT).wgt
