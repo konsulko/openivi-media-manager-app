@@ -44,7 +44,6 @@
 .textPanel { 
   position: relative;
   width: 80%; 
-  height: 350px; 
   margin: 0 auto; 
 }
 
@@ -154,12 +153,12 @@
 /* Media Carousel*/
 
 .media-carousel-container { 
-  margin: 100px 0; 
-  position:relative; 
+  margin: 2px 0;
+  position:relative;
   background: none; 
   overflow: hidden; 
   border-bottom: #53b5ce 1px solid; 
-  height: 465px; 
+  height: 36px;
 }
 
 .media-carousel-container img { 
@@ -231,9 +230,8 @@ ul.no-bullets {
 
 .playback-console-container { 
   position:relative; 
-  width: 1080px; 
-  height: 360px; 
-  margin: 150px 0 0 0; 
+  width: 1024px;
+  margin: 5px 0 0 0;
 }
 
 .set-media-time-bar-holder { 
@@ -276,7 +274,7 @@ ul.no-bullets {
   }
     100% {
     opacity: 1;
-    -webkit-transform: translateX(-1080px);
+    -webkit-transform: translateX(-1024px);
   }
 }
 
@@ -467,11 +465,6 @@ li.content-listing.no-images img.play-now-btn {
 
 .text-input {
   border: 1px solid rgba(178, 240, 255, .5);
-}
-
-#bbar-logo {
-  background-image: url('/images/genivi_white_sm.png');
-  background-size: 106px;
 }
 
 #clockElement {
