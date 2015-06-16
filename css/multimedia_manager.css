@@ -13,8 +13,8 @@
 }
 
 .carouselImage { 
-  width: 300px; 
-  height: 300px; 
+  width: 120px;
+  height: 120px;
 }
 
 .carouselImageReflect { 
@@ -76,7 +76,7 @@
 
 .progressBar-border { 
   border-bottom: 1px solid rgb(83, 181, 206); 
-  margin-bottom: 80px; 
+  margin-bottom: 10px;
   margin-top: -10px; 
 }
 
@@ -89,6 +89,7 @@
 .audio-control-btns-wrapper { 
   height: 45px;
   margin-left: 50px;
+  margin-bottom: 2px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -106,11 +107,9 @@
 
 .song-name-position { 
   line-height: 1.25em;
-  margin-top: 80px;
 }
 
 .artistNameTextMargin { 
-  margin-bottom: 5px; 
 }
 
 .songNameTextPosition { 
@@ -158,7 +157,7 @@
   background: none; 
   overflow: hidden; 
   border-bottom: #53b5ce 1px solid; 
-  height: 36px;
+  height: 20px;
 }
 
 .media-carousel-container img { 
@@ -468,10 +467,32 @@ li.content-listing.no-images img.play-now-btn {
 }
 
 #clockElement {
-  height: 100px;
+  padding: 0px 40px 0px 40px;
 }
 
 .margin-left {
   margin-left: 20px;
 }
 
+#current-artist-name {
+  font-size: 2rem;
+  margin: 0;
+}
+
+#current-album-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+#current-song-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+#songTime {
+  font-size: 2rem;
+}
+
+#nowPlayingLabel {
+  font-size: 2rem;
+}
