@@ -84,14 +84,16 @@ function setRootContainer(){
 	
 	manager = {"DisplayName":"Root"};
 	Browser.discoverMediaManagers(function(obj,err){ 
-		manager.Path = obj[0];
 
-        var rootVal = JSON.stringify([manager.Path]);
+        if (null !== obj) {
+                manager.Path = obj[0];
 
-        $("#libraryCloseSubPanelButton").data("root",rootVal);
-        $("#libraryCloseSubPanelButton").data("nested",rootVal);
+                var rootVal = JSON.stringify([manager.Path]);
 
-        //getChildren(manager.Path);
+                $("#libraryCloseSubPanelButton").data("root",rootVal);
+                $("#libraryCloseSubPanelButton").data("nested",rootVal);
+        }
+
         generateRootListing(manager); 
 	});
 }
